@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 int find(FILE *file, char str[]); //returns 1 if phrase is in the file, returns 0 otherwise
+int menu(); //returns the number of the selected function
 
 int main(void) {
 	FILE *selectedFile;
@@ -19,9 +20,26 @@ int main(void) {
 		}
 	}	
 
+
+
 	find()
 
 
+}
+
+int menu() {
+	while (1) {
+		int input = 0;
+		printf("What would you like to do with the file? Enter a number:\n
+			1) find phrase")
+		scanf(" %i", &input);
+		if (input == 1 || input == 2) {
+			return input;
+		} else {
+			while(getchar()!='\n'){} //clears input buffer
+		}
+
+	}
 }
 
 int find(FILE *file, char str[], int size) {
