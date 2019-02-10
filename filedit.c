@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define MAX_INPUT_LIMIT 20
 
-int find(FILE *file, char str[]); //returns 1 if phrase is in the file, returns 0 otherwise
+int find(FILE *file, char str[]); //returns number of times phrase appears in file
 int menu(); //returns the number of the selected function
+int size(char arr[]); //takes in a character array and returns the size
 
 int main(void) {
 	FILE *selectedFile;
@@ -20,10 +22,24 @@ int main(void) {
 		}
 	}	
 
-
-
-	find()
-
+	while (1) {
+		int selection = menu();
+		switch(selection) {
+			case 1:
+			while (1) {
+				char phrase[4000];
+				printf("What phrase would you like to search the file for? Please limit your phrase to 20 characters\n");
+    			if (fgets(phrase, sizeof(phrase), stdin) == 0)
+        			break;  // EOF or error
+    			size_t len = strlen(input);
+    			if (len > 0)
+        			input[--len] = '\0';   // Zap newline
+    			if (len <= 20)
+        			break;
+       	 	}
+       	 	find(selectedFile, phrase[], size(phrase[]));
+		}
+	}
 
 }
 
@@ -37,6 +53,7 @@ int menu() {
 			return input;
 		} else {
 			while(getchar()!='\n'){} //clears input buffer
+
 		}
 
 	}
@@ -52,5 +69,11 @@ int find(FILE *file, char str[], int size) {
 }
 
 int size(char arr[]) {
-	
+	int index = 0;
+	int size = 0;
+	while (arr[index] != '\0') {
+		size++;
+		index++;
+	}
+	return size;
 }
