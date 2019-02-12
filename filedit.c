@@ -30,9 +30,9 @@ int main(void) {
 			char phrase[4000];
 			while (1) { //guarenteeing valid string
 				printf("What phrase would you like to search the file for? Please limit your phrase to 20 characters\n");
-    			if (fgets(phrase, sizeof(phrase), stdin) == 0) break;  // error
+    			scanf(" %s", phrase);
     			size_t len = strlen(phrase);
-    			if (len > 0) phrase[--len] = '\0';   
+    			// if (len > 0) phrase[--len] = '\0';   
     			if (len <= 20) break;
        	 	}
        	 	int occurances = find(selectedFile, phrase, size(phrase));
@@ -62,7 +62,6 @@ int find(FILE *file, char str[], int size) {
 	int count = 0;
 	char c = fgetc(file);
 	while (c != EOF) {
-		printf("test");
 		if (c == str[0]) {
 			for (int i = 1 ; i < size ; i++) {
 				c = fgetc(file);
@@ -70,7 +69,6 @@ int find(FILE *file, char str[], int size) {
 					break;
 				} else if (i == size - 1) {
 					count++;
-					printf("one occurance found");
 				}
 
 			} 
