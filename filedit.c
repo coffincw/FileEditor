@@ -28,16 +28,12 @@ int main(void) {
 		switch(selection) { //runs 
 			case 1:;
 			char phrase[4000];
-			while (1) {
-				
+			while (1) { //guarenteeing valid string
 				printf("What phrase would you like to search the file for? Please limit your phrase to 20 characters\n");
-    			if (fgets(phrase, sizeof(phrase), stdin) == 0)
-        			break;  // EOF or error
+    			if (fgets(phrase, sizeof(phrase), stdin) == 0) break;  // error
     			size_t len = strlen(phrase);
-    			if (len > 0)
-        			phrase[--len] = '\0';   // Zap newline
-    			if (len <= 20)
-        			break;
+    			if (len > 0) phrase[--len] = '\0';   
+    			if (len <= 20) break;
        	 	}
        	 	printf("There are %i occurances of the phrase %s", find(selectedFile, phrase, size(phrase)), phrase);
 		}
