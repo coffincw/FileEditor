@@ -17,7 +17,7 @@ int main(void) {
 
 		selectedFile = fopen(filename, "r");
 		if (selectedFile == NULL) {
-			printf("Cannot open file, please try again");
+			printf("Cannot open file, please try again\n");
 		} else {
 			break;
 		}
@@ -35,7 +35,7 @@ int main(void) {
     			if (len > 0) phrase[--len] = '\0';   
     			if (len <= 20) break;
        	 	}
-       	 	printf("There are %i occurances of the phrase %s", find(selectedFile, phrase, size(phrase)), phrase);
+       	 	printf("There are %i occurances of the phrase %s.\n", find(selectedFile, phrase, size(phrase)), phrase);
 		}
 	}
 }
@@ -45,7 +45,7 @@ int main(void) {
 int menu() {
 	while (1) {
 		int input = 0;
-		printf("What would you like to do with the file? Enter a number:\n1) find phrase");
+		printf("What would you like to do with the file? Enter a number:\n1) find phrase\n");
 		scanf(" %i", &input);
 		if (input == 1 || input == 2) {
 			return input;
