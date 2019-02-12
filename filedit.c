@@ -35,7 +35,8 @@ int main(void) {
     			if (len > 0) phrase[--len] = '\0';   
     			if (len <= 20) break;
        	 	}
-       	 	printf("There are %i occurances of the phrase %s.\n", find(selectedFile, phrase, size(phrase)), phrase);
+       	 	int occurances = find(selectedFile, phrase, size(phrase));
+       	 	printf("There are %i occurances of the phrase %s.\n", occurances, phrase);
 		}
 	}
 }
@@ -61,6 +62,7 @@ int find(FILE *file, char str[], int size) {
 	int count = 0;
 	char c = fgetc(file);
 	while (c != EOF) {
+		printf("test");
 		if (c == str[0]) {
 			for (int i = 1 ; i < size ; i++) {
 				c = fgetc(file);
@@ -68,10 +70,12 @@ int find(FILE *file, char str[], int size) {
 					break;
 				} else if (i == size - 1) {
 					count++;
+					printf("one occurance found");
 				}
 
 			} 
 		}
+		c = fgetc(file);
 	}
 	return count;
 }
