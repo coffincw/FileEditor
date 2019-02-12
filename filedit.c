@@ -61,12 +61,22 @@ int menu() {
 }
 
 int find(FILE *file, char str[], int size) {
+	int count = 0;
 	char c = fgetc(file);
 	while (c != EOF) {
 		if (c == str[0]) {
+			for (int i = 1 ; i < size ; i++) {
+				c = fgetc(file);
+				if (c != str[i]) {
+					break;
+				} else if (i == size - 1) {
+					count++;
+				}
 
+			} 
 		}
 	}
+	return count;
 }
 
 int size(char arr[]) {
