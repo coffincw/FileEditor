@@ -25,7 +25,7 @@ int main(void) {
 
 	while (1) {
 		int selection = menu();
-		switch(selection) {
+		switch(selection) { //runs 
 			case 1:;
 			char phrase[4000];
 			while (1) {
@@ -39,11 +39,12 @@ int main(void) {
     			if (len <= 20)
         			break;
        	 	}
-       	 	find(selectedFile, phrase, size(phrase));
+       	 	printf("There are %i occurances of the phrase %s", find(selectedFile, phrase, size(phrase)), phrase);
 		}
 	}
-
 }
+
+
 
 int menu() {
 	while (1) {
