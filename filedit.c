@@ -7,7 +7,7 @@
 int find(FILE *file, char str[], int size); //returns number of times phrase appears in file
 int menu(); //returns the number of the selected function
 int size(char arr[]); //takes in a character array and returns the size
-void renameFile(); //renames a file based on the users input
+void renameFile(char name[]); //renames a file based on the users input
 
 int main(void) {
     FILE *selectedFile;
@@ -33,14 +33,15 @@ int main(void) {
                 while (1) { //guarenteeing valid string
                     printf("What phrase would you like to search the file for? Please limit your phrase to 20 characters\n");
                     scanf(" %s", phrase);
-                    size_t len = strlen(phrase);
-                    // if (len > 0) phrase[--len] = '\0';
+                    size_t len = strlen(phrase); //length of the phrase;
                     if (len <= 20) break;
                 }
                 int occurances = find(selectedFile, phrase, size(phrase));
                 printf("There are %i occurances of the phrase %s.\n", occurances, phrase);
                 break;
             case 2:
+
+                renameFile(filename);
                 break;
                 //implement rename
             case 3:
@@ -49,11 +50,12 @@ int main(void) {
     }
 }
 
-void renameFile() {
+void renameFile(char name[]) {
     while (1) {
-        char newName[260];
+        char newName[260]; //new name for the file
         printf("Input the name that you would like to rename the file");
         scanf("%s", newName);
+        if (rename(name, newName) == 0) break; //if valid file name
     }
 
 }
