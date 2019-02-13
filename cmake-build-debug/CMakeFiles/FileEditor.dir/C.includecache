@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Caleb/Documents/Programming Projects/FileEditor/FileEditor/filedit.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+
