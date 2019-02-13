@@ -7,6 +7,7 @@
 int find(FILE *file, char str[], int size); //returns number of times phrase appears in file
 int menu(); //returns the number of the selected function
 int size(char arr[]); //takes in a character array and returns the size
+void renameFile(); //renames a file based on the users input
 
 int main(void) {
     FILE *selectedFile;
@@ -48,6 +49,10 @@ int main(void) {
     }
 }
 
+void renameFile() {
+
+}
+
 
 int menu() {
     while (1) {
@@ -64,6 +69,8 @@ int menu() {
 
     }
 }
+
+
 
 int find(FILE *file, char str[], int size) {
     int count = 0;
