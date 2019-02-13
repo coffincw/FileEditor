@@ -12,7 +12,7 @@ void renameFile(); //renames a file based on the users input
 int main(void) {
     FILE *selectedFile;
 
-    char filename[100], c;
+    char filename[100];
     while (1) {
         printf("Enter the name of the file:");
         scanf("%s", filename);
@@ -50,6 +50,11 @@ int main(void) {
 }
 
 void renameFile() {
+    while (1) {
+        char newName[260];
+        printf("Input the name that you would like to rename the file");
+        scanf("%s", newName);
+    }
 
 }
 
