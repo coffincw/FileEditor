@@ -2,23 +2,20 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_INPUT_LIMIT 20
-
 int find(FILE *file, char str[], int size); //returns number of times phrase appears in file
 int menu(); //returns the number of the selected function
 int size(char arr[]); //takes in a character array and returns the size
 void renameFile(char name[]); //renames a file based on the users input
 
 int main(void) {
-    FILE *selectedFile;
-
-    char filename[100];
+    FILE *selectedFile; //file selected by the user
+    char filename[100]; // the name of the file selected by the user
     while (1) {
         printf("Enter the name of the file:");
         scanf("%s", filename);
 
         selectedFile = fopen(filename, "r");
-        if (selectedFile == NULL) {
+        if (selectedFile == NULL) { //invalid file
             printf("Cannot open file, please try again\n");
         } else {
             break;
