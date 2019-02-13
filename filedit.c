@@ -28,7 +28,7 @@ int main(void) {
     while (1) {
         int selection = menu();
         switch (selection) { //runs
-            case 1:;
+            case 1:; // find a phrase
                 char phrase[4000];
                 while (1) { //guarenteeing valid string
                     printf("What phrase would you like to search the file for? Please limit your phrase to 20 characters\n");
@@ -36,15 +36,14 @@ int main(void) {
                     size_t len = strlen(phrase); //length of the phrase;
                     if (len <= 20) break;
                 }
-                int occurances = find(selectedFile, phrase, size(phrase));
+                int occurances = find(selectedFile, phrase, size(phrase)); // number of occurances of the requested phrase
                 printf("There are %i occurances of the phrase %s.\n", occurances, phrase);
                 break;
-            case 2:
-
+            case 2: //rename file
                 renameFile(filename);
                 break;
                 //implement rename
-            case 3:
+            case 3: //exit
                 exit(0);
         }
     }
@@ -81,14 +80,14 @@ int menu() {
 
 int find(FILE *file, char str[], int size) {
     int count = 0;
-    char c = fgetc(file);
+    char c = (char) fgetc(file); //just incase integer
     while (c != EOF) {
         if (c == str[0]) {
-            for (int i = 1; i < size; i++) {
+            for (int i = 1; i < size; i++) { //iterate through file
                 c = fgetc(file);
                 if (c != str[i]) {
                     break;
-                } else if (i == size - 1) {
+                } else if (i == size - 1) { //if phrase found increase count
                     count++;
                 }
 
@@ -102,7 +101,7 @@ int find(FILE *file, char str[], int size) {
 int size(char arr[]) {
     int index = 0;
     int size = 0;
-    while (arr[index] != '\0') {
+    while (arr[index] != '\0') { //iterate through array
         size++;
         index++;
     }
