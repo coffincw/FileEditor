@@ -40,8 +40,10 @@ int main(void) {
             case 2: //rename file
                 renameFile(filename);
                 break;
-                //implement rename
-            case 3: //exit
+            case 3:
+                printContents(selectedFile);
+                break;
+            case 4: //exit
                 exit(0);
         }
     }
@@ -69,9 +71,9 @@ void renameFile(char name[]) {
 int menu() {
     while (1) {
         int input = 0;
-        printf("What would you like to do with the file? Enter a number:\n1) find phrase\n2) rename file\n3) exit");
+        printf("What would you like to do with the file? Enter a number:\n1) find phrase\n2) rename file\n3) print contents\n4) exit");
         scanf(" %i", &input);
-        if (input == 1 || input == 2 || input == 3) {
+        if (input == 1 || input == 2 || input == 3 || input == 4) {
             return input;
         } else {
             while (getchar() != '\n') {} //clears input buffer
