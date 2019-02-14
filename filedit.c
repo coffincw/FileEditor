@@ -61,9 +61,16 @@ void printContents(FILE *file) {
 void renameFile(char name[]) {
     while (1) {
         char newName[260]; //new name for the file
-        printf("Input the name that you would like to rename the file");
+        printf("Input the name that you would like to rename the file\n");
         scanf("%s", newName);
-        if (rename(name, newName) == 0) break; //if valid file name
+        printf("newName: %s\n", newName);
+        printf("name: %s\n", name);
+        int testRename = rename(name, newName);
+        printf("%i\n", testRename);
+        if (testRename == 0) break; //if valid file name
+        else {
+            printf("Please enter a valid input\n");
+        }
     }
 
 }
