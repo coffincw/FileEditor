@@ -6,6 +6,7 @@ int find(FILE *file, char str[], int size); //returns number of times phrase app
 int menu(); //returns the number of the selected function
 int size(char arr[]); //takes in a character array and returns the size
 void renameFile(char name[]); //renames a file based on the users input
+void printContents(FILE *file); //prints the contents of a specified file
 
 int main(void) {
     FILE *selectedFile; //file selected by the user
@@ -43,6 +44,14 @@ int main(void) {
             case 3: //exit
                 exit(0);
         }
+    }
+}
+
+void printContents(FILE *file) {
+    char c = fgetc(file);
+    while (c != EOF) {
+        printf("%c", c);
+        c = fgetc(file);
     }
 }
 
