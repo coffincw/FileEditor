@@ -55,6 +55,7 @@ void printContents(FILE *file) {
         printf("%c", c);
         c = fgetc(file);
     }
+    printf("\n"); //new line at the end of the file for formatting
 }
 
 void renameFile(char name[]) {
@@ -71,7 +72,7 @@ void renameFile(char name[]) {
 int menu() {
     while (1) {
         int input = 0;
-        printf("What would you like to do with the file? Enter a number:\n1) find phrase\n2) rename file\n3) print contents\n4) exit");
+        printf("What would you like to do with the file? Enter a number:\n1) find phrase\n2) rename file\n3) print contents\n4) exit\n");
         scanf(" %i", &input);
         if (input == 1 || input == 2 || input == 3 || input == 4) {
             return input;
