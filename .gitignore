@@ -28,12 +28,17 @@
 # When using Gradle or Maven with auto-import, you should exclude module files,
 # since they will be recreated, and may cause churn.  Uncomment if using
 # auto-import.
-# .idea/modules.xml
-# .idea/*.iml
-# .idea/modules
+.idea/modules.xml
+.idea/*.iml
+.idea/modules
+.idea/encodings.xml
+.idea/misc.xml
+.idea/vcs.xml
+
 
 # CMake
 cmake-build-*/
+CMakeLists.txt
 
 # Mongo Explorer plugin
 .idea/**/mongoSettings.xml
@@ -64,3 +69,10 @@ fabric.properties
 
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
+
+# Ubuntu stuff
+ubuntu-xenial-16.04-cloudimg-console.log
+
+# Project specific files to ignore
+edit
+the-yellow-wallpaper.txt
